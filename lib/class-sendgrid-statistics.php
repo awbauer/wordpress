@@ -66,7 +66,7 @@ class Sendgrid_Statistics
     {
       case "apikey":
         $apikey = Sendgrid_Tools::get_api_key();
-        if ( ! Sendgrid_Tools::check_api_key( $apikey ) )
+        if ( ! Sendgrid_Tools::check_api_key_stats( $apikey ) )
           return;
       break;
 
@@ -88,7 +88,7 @@ class Sendgrid_Statistics
   public static function show_statistics_page()
   {
     $apikey = Sendgrid_Tools::get_api_key();
-    if ( ( "apikey" == Sendgrid_Tools::get_auth_method() ) and isset( $apikey ) and ( $apikey != '' ) and ! Sendgrid_Tools::check_api_key_stats( $apikey, true ) )
+    if ( ( "apikey" == Sendgrid_Tools::get_auth_method() ) and isset( $apikey ) and ( $apikey != '' ) and ! Sendgrid_Tools::check_api_key_stats( $apikey ) )
     {
       $message = 'Your Api key does not have statistics permissions';
       $status  = 'error';
